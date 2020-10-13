@@ -6,8 +6,10 @@ QT += core gui widgets network multimedia
 CONFIG += c++14
 
 SOURCES += \
+    cityscene.cpp \
     login.cpp \
-    main.cc
+    main.cc \
+    penguin.cpp
 
 win32:CONFIG(release, debug|release): LIBS += \
     -L$$OUT_PWD/../Course/CourseLib/release/ -lCourseLib
@@ -37,7 +39,11 @@ FORMS += \
     login.ui
 
 HEADERS += \
-    login.hh
+    cityscene.hh \
+    login.hh \
+    penguin.hh
 
 RESOURCES += \
-    Resources.qrc
+    images.qrc
+
+DISTFILES +=
