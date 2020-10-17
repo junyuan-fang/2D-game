@@ -7,14 +7,14 @@ Penguin::Penguin(QGraphicsItem *parent):
     currentStatus_(STATUS::stand),
     frameIndex_(0)
 {
-
     animationTimer_.setInterval(100);
     animationTimer_.start();
     transform_.scale(-1,1);
     connect(&animationTimer_, &QTimer::timeout, this, &Penguin::animation);
 
-
 }
+
+
 
 Penguin::DIRECTION Penguin::getDirection() const
 {
@@ -48,6 +48,7 @@ void Penguin::setStatus(Penguin::STATUS status)
     frameIndex_ = 0;
 }
 
+
 void Penguin::animation()
 {
     switch (currentStatus_) {
@@ -66,6 +67,10 @@ void Penguin::animation()
         attackAnimation();
         break;
 
+    case STATUS::jump :
+        jumpAnimation();
+        break;
+
     }
 }
 
@@ -77,6 +82,8 @@ void Penguin::standAnimation()
     QString pixelPath = ":/penguin/penguin/stand/stand" + QString::number(frameIndex_) + ".png";
     QPixmap standPixel(pixelPath);
     setPixmap(standPixel);
+    // set origin point in item coordinator,
+    // otherwise applying item transform will be based on scene coordinator
     setOffset(-standPixel.width() / 2, -standPixel.height() / 2);
     setTransform(transform_);
     frameIndex_ += 1;
@@ -123,4 +130,14 @@ void Penguin::dieAnimation()
     setOffset(-diePixel.width() / 2, -diePixel.height() / 2);
     setTransform(transform_);
     frameIndex_ += 1;
+}
+
+void Penguin::jumpAnimation()
+{
+    QString pixelPath = ":/penguin/penguin/stand/stand0.png";
+    QPixmap jumpPixel(pixelPath);
+    setPixmap(jumpPixel);
+    setOffset(-jumpPixel.width() / 2, -jumpPixel.height() / 2);
+    setTransform(transform_);
+
 }
