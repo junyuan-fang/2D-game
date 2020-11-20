@@ -10,7 +10,7 @@ Penguin::Penguin(QGraphicsItem *parent):
 
     animationTimer_.setInterval(100);
     animationTimer_.start();
-    transform_.scale(-2,1);
+    transform_.scale(-1,1);
     connect(&animationTimer_, &QTimer::timeout, this, &Penguin::animation);
 
 

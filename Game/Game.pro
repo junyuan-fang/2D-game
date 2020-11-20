@@ -44,6 +44,10 @@ HEADERS += \
     penguin.hh
 
 RESOURCES += \
-    images.qrc
+    animation.qrc \
+    background.qrc \
+    map.qrc \
+    music.qrc \
+    penguin.qrc
 
 DISTFILES +=
