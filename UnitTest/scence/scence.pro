@@ -6,4 +6,4 @@ CONFIG -= app_bundle
 
 TEMPLATE = app
 
-SOURCES +=  tst_teacher.cpp
+SOURCES +=  tst_scenetest.cpp
