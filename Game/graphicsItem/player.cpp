@@ -199,3 +199,64 @@ void Player::collisionDectect()
     mAtCeiling = hasCeiling(headY, leftX, rightX);
 }
 
+bool Player::hasGround(float bottomY, float leftX, float rightX)
+{
+    float checkedTileX = leftX;
+    std::vector<int> tileIndex;
+    while(checkedTileX <= rightX){
+        tileIndex = mCurrentMap->ScenePointToTileIndex(checkedTileX, bottomY);
+        if (mCurrentMap->isGround(tileIndex[0], tileIndex[1])){
+            // here, set the y position, so there character can stand on tiles accurately
+            mCurrentPosition.setY(int(bottomY / TileHeight) * TileHeight - 0.5 * playerHeight);
+            return true;
+        }
+        checkedTileX += TileWidth;
+    }
+    return false;
+}
+
+bool Player::hasRightObtacle(float bottomY, float headY, float rightX)
+{
+    float checkedTileY = headY;
+    std::vector<int> tileIndex;
+    while(checkedTileY <= bottomY){
+        tileIndex = mCurrentMap->ScenePointToTileIndex(rightX, checkedTileY);
+        if (mCurrentMap->isObstacle(tileIndex[0], tileIndex[1])){
+            return true;
+        }
+        checkedTileY += TileHeight;
+    }
+    return false;
+
+}
+
+bool Player::hasLeftObtacle(float bottomY, float headY, float leftX)
+{
+    float checkedTileY = headY;
+    std::vector<int> tileIndex;
+    while(checkedTileY <= bottomY){
+        tileIndex = mCurrentMap->ScenePointToTileIndex(leftX, checkedTileY);
+        if (mCurrentMap->isObstacle(tileIndex[0], tileIndex[1])){
+            return true;
+        }
+        checkedTileY += TileHeight;
+    }
+    return false;
+
+}
+
+bool Player::hasCeiling(float headY, float leftX, float rightX)
+{
+    float checkedTileX = leftX;
+    std::vector<int> tileIndex;
+    while(checkedTileX <= rightX){
+        tileIndex = mCurrentMap->ScenePointToTileIndex(checkedTileX, headY);
+        if (mCurrentMap->isCeiling(tileIndex[0], tileIndex[1])){
+            return true;
+        }
+        checkedTileX += TileWidth;
+    }
+    return false;
+
+}
+
