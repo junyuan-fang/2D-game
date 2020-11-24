@@ -13,6 +13,7 @@ SOURCES += \
     graphicsItem/cleaner.cpp \
     graphicsItem/enemy.cpp \
     graphicsItem/hiteffect.cpp \
+    graphicsItem/hospitalgate.cpp \
     graphicsItem/penguin.cpp \
     graphicsItem/player.cpp \
     graphicsItem/questlight.cpp \
@@ -76,6 +77,7 @@ HEADERS += \
     graphicsItem/cleaner.hh \
     graphicsItem/enemy.hh \
     graphicsItem/hiteffect.hh \
+    graphicsItem/hospitalgate.hh \
     graphicsItem/penguin.hh \
     graphicsItem/player.hh \
     graphicsItem/questlight.hh \
