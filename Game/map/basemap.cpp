@@ -1,5 +1,10 @@
 #include "basemap.hh"
 
+BaseMap::BaseMap()
+{
+
+}
+
 void BaseMap::initialMap(QString mapName)
 {
     readCSV(mapName);

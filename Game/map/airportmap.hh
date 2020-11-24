@@ -1,5 +1,6 @@
 #ifndef AIRPORTMAP_HH
 #define AIRPORTMAP_HH
+
 #include <string>
 #include <QVector2D>
 #include <QVector>

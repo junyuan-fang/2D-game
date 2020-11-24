@@ -11,12 +11,12 @@ AirportScene::AirportScene(QObject *parent): BasicScene(parent)
     // connect scene timer and updating scene
     mTimer.start();
     mTimer.setInterval(50);
-    connect(&mTimer, &QTimer::timeout, this, &AirportsScene::updateScene);
+    connect(&mTimer, &QTimer::timeout, this, &AirportScene::updateScene);
 
     // connect train timer and train animation
     trainTimer.stop();
     trainTimer.setInterval(100);
-    connect(&trainTimer, &QTimer::timeout, this, &AirportsScene::trainAnimation);
+    connect(&trainTimer, &QTimer::timeout, this, &AirportScene::trainAnimation);
 
     // connect npc timer and npc(npc don't need to update fast as player)
     animationTimer.setInterval(500);
@@ -24,7 +24,7 @@ AirportScene::AirportScene(QObject *parent): BasicScene(parent)
     connect(&animationTimer, &QTimer::timeout, tutor, &SceneItem::playAnimation);
     connect(&animationTimer, &QTimer::timeout, airCrew, &SceneItem::playAnimation);
     connect(&animationTimer, &QTimer::timeout, erp, &SceneItem::playAnimation);
-    connect(&mTimer, &QTimer::timeout, this, &AirportsScene::updateEnemy);
+    connect(&mTimer, &QTimer::timeout, this, &AirportScene::updateEnemy);
 
     mCurrentScene = SceneType::Airport;
 
@@ -57,7 +57,7 @@ void AirportScene::initScene()
     airportsTileImage->setPos(0,0);
     addItem(airportsTileImage);
 
-    mPlayer->mCurrentMap = new AirportsMap;
+    mPlayer->mCurrentMap = new AirportMap;
     mPlayer->mCurrentPosition.setX(mPlayer->mCurrentMap->getPlayerStartPosition().x());
     mPlayer->mCurrentPosition.setY(mPlayer->mCurrentMap->getPlayerStartPosition().y());
     mPlayer->setPos(mPlayer->mCurrentPosition.x(), mPlayer->mCurrentPosition.y());
@@ -113,7 +113,7 @@ void AirportScene::initScene()
     trainWindow->setPos(-30, -150);
     trainWindow->setVisible(false);
     trainWindow->setFlag(QGraphicsItem::ItemIgnoresTransformations);
-    connect(train->trainWindow, &TalkWindow::windowReturnAnswer, this, &AirportsScene::trainWindowResponse);
+    connect(train->trainWindow, &TalkWindow::windowReturnAnswer, this, &AirportScene::trainWindowResponse);
 
     // add bus window for taking bus
     busWindow = this->addWidget(busTalkWindow);
@@ -123,7 +123,7 @@ void AirportScene::initScene()
     // bus window will not transform as its parent item player
     busWindow->setFlag(QGraphicsItem::ItemIgnoresTransformations);
 
-    connect(busTalkWindow, &BusWindow::selectedBus,this, &AirportsScene::processBusWindow);
+    connect(busTalkWindow, &BusWindow::selectedBus,this, &AirportScene::processBusWindow);
 
     addItem(tutor);
     addItem(airCrew);
