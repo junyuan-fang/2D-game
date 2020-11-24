@@ -15,5 +15,6 @@
         <file>images/quest.png</file>
         <file>images/splash.png</file>
         <file>images/tampere.png</file>
+        <file>images/startButton.png</file>
     </qresource>
 </RCC>
