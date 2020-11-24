@@ -25,3 +25,17 @@ BusWindow::~BusWindow()
     delete ui;
 }
 
+void BusWindow::initWindow()
+{
+    ui->textDisplay->setText("Which bus would you like to take?");
+    if(MapOfBusStop.toLower() == "airport"){
+        ui->rightButton->setVisible(true);
+        ui->leftButton->setVisible(true);
+        ui->rightButton->setText("6B");
+        ui->leftButton->setText("1A");
+        return;
+    }
+    ui->rightButton->setVisible(false);
+    ui->leftButton->setVisible(true);
+    ui->leftButton->setText("6B");
+}
