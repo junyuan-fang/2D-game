@@ -175,3 +175,27 @@ void Player::updatePreviousInput()
         mPreviousInputs[i] = mInputs[i];
     }
 }
+
+void Player::updatePhysics()
+{
+    mCurrentPosition += mCurrentSpeed * 0.1;
+    collisionDectect();
+}
+
+void Player::collisionDectect()
+{
+    // the bottom of player bounding box is player.y + 1/2 player.size
+    float bottomY = mCurrentPosition.y() + 0.5 * playerHeight;
+    // the head of player bounding  box
+    float headY = mCurrentPosition.y() - 0.5 * playerHeight;
+    // the left of player bounding box
+    float leftX = mCurrentPosition.x() - 0.5 * playerWidth;
+    // the right of player bounding box
+    float rightX = mCurrentPosition.x() + 0.5 * playerWidth;
+
+    mOnGround = hasGround(bottomY, leftX, rightX);
+    mPushesRightWall = hasRightObtacle(bottomY, headY, rightX);
+    mPushesLeftWall = hasLeftObtacle(bottomY, headY, leftX);
+    mAtCeiling = hasCeiling(headY, leftX, rightX);
+}
+
