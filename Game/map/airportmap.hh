@@ -6,10 +6,10 @@
 #include "Constants.hh"
 #include "basemap.hh"
 
-class AirportsMap : public BaseMap
+class AirportMap : public BaseMap
 {
 public:
-    AirportsMap();
+    AirportMap();
     std::string getMapName() override;
     QVector2D getGraphicsItemPosition(std::string itemName) override;
 
