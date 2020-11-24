@@ -35,3 +35,22 @@ QVector<QVector2D> BaseMap::getEnemyPosition() const
     QVector<QVector2D> vec;
     return vec;
 }
+
+std::vector<int> BaseMap::ScenePointToTileIndex(float scenePointX, float scenePointY)
+{
+    std::vector<int> tileIndex = {0,0};
+    tileIndex[0] = int(scenePointX / TileWidth);
+    tileIndex[1] = int(scenePointY / TileHeight);
+
+    return tileIndex;
+}
+
+BaseMap::TileType BaseMap::getTileType(int x, int y)
+{
+    // if index is out of bound, then return block
+    if (x < 0 || x >= MapWidth || y < 0 || y >= MapHeight){
+        return TileType::Block;
+    }
+    return map[y][x];
+
+}
