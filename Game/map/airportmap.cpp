@@ -12,3 +12,33 @@ std::string AirportsMap::getMapName()
 {
     return "AirportsMap";
 }
+
+QVector2D AirportsMap::getGraphicsItemPosition(std::string itemName)
+{
+    if (itemName=="tutor"){
+        return tutorPosition;
+    }
+    else if(itemName=="erp"){
+        return erpPosition;
+    }
+    else if(itemName=="airCrew"){
+        return airCrewPosition;
+    }
+    return QVector2D{0,0};
+
+}
+
+QVector2D AirportsMap::getPlayerStartPosition() const
+{
+    return playerStartPosition;
+}
+
+QVector2D AirportsMap::getPlayerEndPosition() const
+{
+    return playerEndPosition;
+}
+
+QVector<QVector2D> AirportsMap::getEnemyPosition() const
+{
+    return enemyPosition;
+}
