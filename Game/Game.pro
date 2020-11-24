@@ -36,7 +36,6 @@ SOURCES += \
     scene/tamperescene.cpp \
     scene/universityscene.cpp \
     window/buswindow.cpp \
-    window/loginwindow.cpp \
     window/talkwindow.cpp
 
 win32:CONFIG(release, debug|release): LIBS += \
@@ -66,7 +65,6 @@ else:unix: PRE_TARGETDEPS += \
 FORMS += \
     login.ui \
     window/buswindow.ui \
-    window/loginwindow.ui \
     window/talkwindow.ui
 
 HEADERS += \
@@ -100,7 +98,6 @@ HEADERS += \
     scene/tamperescene.hh \
     scene/universityscene.hh \
     window/buswindow.hh \
-    window/loginwindow.hh \
     window/talkwindow.hh
 
 RESOURCES += \
