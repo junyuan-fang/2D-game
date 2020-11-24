@@ -1,6 +1,6 @@
 #include "airportmap.hh"
 
-AirportsMap::AirportsMap()
+AirportMap::AirportMap()
 {
     initialMap(":/mapData/mapData/airportsMap.csv");
     // add enemy position
@@ -8,12 +8,12 @@ AirportsMap::AirportsMap()
     enemyPosition.append({61*TileWidth, 21*TileHeight-0.5*enemyHeight});
 }
 
-std::string AirportsMap::getMapName()
+std::string AirportMap::getMapName()
 {
-    return "AirportsMap";
+    return "AirportMap";
 }
 
-QVector2D AirportsMap::getGraphicsItemPosition(std::string itemName)
+QVector2D AirportMap::getGraphicsItemPosition(std::string itemName)
 {
     if (itemName=="tutor"){
         return tutorPosition;
@@ -28,17 +28,17 @@ QVector2D AirportsMap::getGraphicsItemPosition(std::string itemName)
 
 }
 
-QVector2D AirportsMap::getPlayerStartPosition() const
+QVector2D AirportMap::getPlayerStartPosition() const
 {
     return playerStartPosition;
 }
 
-QVector2D AirportsMap::getPlayerEndPosition() const
+QVector2D AirportMap::getPlayerEndPosition() const
 {
     return playerEndPosition;
 }
 
-QVector<QVector2D> AirportsMap::getEnemyPosition() const
+QVector<QVector2D> AirportMap::getEnemyPosition() const
 {
     return enemyPosition;
 }
