@@ -20,7 +20,7 @@ SOURCES += \
     graphicsItem/teacher.cpp \
     graphicsItem/train.cpp \
     graphicsItem/tutor.cpp \
-    login.cpp \
+    window/login.cpp \
     main.cc \
     map/airportmap.cpp \
     map/basemap.cpp \
@@ -63,7 +63,7 @@ else:unix: PRE_TARGETDEPS += \
     $$OUT_PWD/../Course/CourseLib/libCourseLib.a
 
 FORMS += \
-    login.ui \
+    window/login.ui \
     window/buswindow.ui \
     window/talkwindow.ui
 
@@ -83,7 +83,7 @@ HEADERS += \
     graphicsItem/teacher.hh \
     graphicsItem/train.hh \
     graphicsItem/tutor.hh \
-    login.hh \
+    window/login.hh \
     map/airportmap.hh \
     map/basemap.hh \
     map/citymap.hh \
