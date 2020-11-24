@@ -54,3 +54,46 @@ void TalkWindow::setButtonVisible(QString buttonName, bool ifVisible)
     ui->rightButton->setVisible(false);
 
 }
+
+void TalkWindow::processLeftButton()
+{
+    QString text = ui->leftButton->text().toLower();
+    if (text == "previous"){
+        emit PreviousTalkWindow();
+        return;
+    }
+
+    if (text == "no"){
+        emit windowReturnAnswer(false);
+        return;
+    }
+    if (text == "yes"){
+        emit windowReturnAnswer(true);
+        return;
+    }
+
+}
+
+void TalkWindow::processRightButton()
+{
+    QString text = ui->rightButton->text().toLower();
+    if (text == "end"){
+        emit endTalkWindow();
+        return;
+    }
+
+    if (text == "next"){
+        emit NextTalkWindow();
+        return;
+    }
+
+    if (text == "no"){
+        emit windowReturnAnswer(false);
+        return;
+    }
+    if (text == "yes"){
+        emit windowReturnAnswer(true);
+        return;
+    }
+
+}
