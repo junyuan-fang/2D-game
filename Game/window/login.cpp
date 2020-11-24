@@ -6,9 +6,8 @@ Login::Login(QWidget *parent) :
     ui(new Ui::Login)
 {
     ui->setupUi(this);
-}
+    //initDialog();
+    connect(ui->cancelButton, &QPushButton::clicked, this, &Login::rejected);
+    connect(ui->startButton, &QPushButton::clicked, this, &Login::accepted);
 
-Login::~Login()
-{
-    delete ui;
 }
