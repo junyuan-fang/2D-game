@@ -134,3 +134,11 @@ void Player::updatePlayer()
 
 }
 
+void Player::changeDirection(Player::PlayerDirection direction)
+{
+    if (direction != mCurrentDirection){
+        mCurrentDirection = direction;
+        mTransform.scale(-1,1);
+    }
+
+}
