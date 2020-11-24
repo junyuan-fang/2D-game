@@ -142,3 +142,36 @@ void Player::changeDirection(Player::PlayerDirection direction)
     }
 
 }
+
+void Player::changeState(Player::PlayerState state)
+{
+    if(state != mCurrentState){
+        mCurrentState = state;
+        Penguin::mFrameIndex = 0;
+    }
+
+}
+
+bool Player::keyState(Player::KeyInput input)
+{
+    // current frame has the input
+    return mInputs[input];
+}
+
+bool Player::keyFirstState(Player::KeyInput input)
+{
+    return mInputs[input] && !mPreviousInputs[input];
+}
+
+Player::PlayerDirection Player::currentDirection() const
+{
+    return mCurrentDirection;
+}
+
+void Player::updatePreviousInput()
+{
+    int count = KeyInput::End;
+    for (int i=0; i<count; ++i){
+        mPreviousInputs[i] = mInputs[i];
+    }
+}
