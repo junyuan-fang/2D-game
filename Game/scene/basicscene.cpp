@@ -1,6 +1,6 @@
 #include "basicscene.hh"
 #include "graphicsItem/hiteffect.hh"
-
+#include <cmath>
 #include <QDebug>
 
 BasicScene::BasicScene(QObject *parent):
@@ -140,6 +140,7 @@ void BasicScene::keyReleaseEvent(QKeyEvent *event)
         break;
     case Qt::Key_Space:
         mPlayer->mInputs[Player::KeyInput::Jump] = false;
+        break;
     case Qt::Key_A:
         mPlayer->mInputs[Player::KeyInput::Attack] = false;
         break;
