@@ -5,7 +5,7 @@ Teacher::Teacher():SceneItem(":/animation/animation/teacher/stand/stand", npcSta
     // store all messages in the vector
     messages.append("Hello! Little Penguin, Welcome to study at Tampere University!");
     messages.append("Please show me your passport.");
-    messages.append("Also, you need to pay student fee, we only support bank card");
+    messages.append("Also, you need to pay student fee, we only support bank card.");
     messages.append("I'm sorry that you don't have bank card, you should open a card at bank in city center.");
     messages.append("Thanks, you have finished your registration, would you like to end game now?");
     messageIndex = 0;

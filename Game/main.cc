@@ -20,10 +20,11 @@ int main(int argc, char *argv[])
     myGame.close();
 
     Login loginWindow;
+    loginWindow.close();
 
 
-    QTimer::singleShot(5,splash, &QSplashScreen::close);
-    QTimer::singleShot(5,&loginWindow, &QDialog::show);
+    QTimer::singleShot(5*1000,splash, &QSplashScreen::close);
+    QTimer::singleShot(5*1000,&loginWindow, &QDialog::show);
 
     loginWindow.connect(&loginWindow, &QDialog::accepted, &myGame, &GameView::startView);
     loginWindow.connect(&loginWindow, &QDialog::accepted, &loginWindow, &QDialog::close);

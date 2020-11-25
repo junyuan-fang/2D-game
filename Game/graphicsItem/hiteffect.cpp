@@ -17,6 +17,7 @@ void HitEffect::playAnimation()
 {
     // when play once finished, it's parentItem should be invisible and stop timer
     if (frameIndex > animationFrame){
+        qDebug() << "play hit animation";
         animationTimer.stop();
         frameIndex = 0;
         this->parentItem()->setVisible(false);

@@ -51,7 +51,7 @@ void GameView::initView()
         setCurrentScene(BasicScene::SceneType::Airport);
     });
 
-    // if player is in the game connect every scene
+    // connect each scene in the game
     auto sceneIter = gameScenes.begin();
     while (sceneIter != gameScenes.end()) {
         connect(sceneIter.value(), &BasicScene::changeScene, this, &GameView::processChangeScene);

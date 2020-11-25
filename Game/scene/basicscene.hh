@@ -40,6 +40,7 @@ public:
 
     // add enemys
     QVector<Enemy*> enemys;
+
     // init enemys
     void initEnemys(QString enemyPath);
 

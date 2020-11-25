@@ -6,6 +6,7 @@ AirCrew::AirCrew():SceneItem(":/animation/animation/airCrew/stand", npcStandFram
     // store all messages in the vector
     messages.append("Hello! Little Penguin, Welcome to Tampere!");
     messages.append("It's your first time arriving in Tampere Airports, do you need some introduction?");
+    messages.append("You can use arrow keys on keyboard to move and space key to jump.");
     messages.append("You can go up to take train or go down and both way will lead you to the bus stop.");
     messageIndex = 0;
 
@@ -72,11 +73,19 @@ void AirCrew::windowFameResponse()
         airCrewWindow->setButtonVisible("left", true);
         airCrewWindow->setButtonText("left", "No");
         break;
-    //"You can go up to take train or go down and both way will lead you to the bus stop."
+    //"You can use arrow keys on keyboard to move and space key to jump."
     case 2:
+        airCrewWindow->setButtonVisible("right", true);
+        airCrewWindow->setButtonText("right", "Next");
+        airCrewWindow->setButtonVisible("left", true);
+        airCrewWindow->setButtonVisible("left", "Previous");
+        break;
+    // "You can go up to take train or go down and both way will lead you to the bus stop."
+    case 3:
         airCrewWindow->setButtonVisible("right", true);
         airCrewWindow->setButtonText("right", "End");
         airCrewWindow->setButtonVisible("left", false);
+
         break;
     }
 }

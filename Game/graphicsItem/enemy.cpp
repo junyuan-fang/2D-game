@@ -48,17 +48,15 @@ void Enemy::updateEnemy()
         }
         position.setX(position.x() + walkSpeed);
         playWalk();
-        //hitEffect->setVisible(false);
         break;
     case EnemyStatus::Hit:
         playHit();
         hitEffect->setVisible(true);
         hitEffect->animationTimer.start();
         hitEffect->playAnimation();
-        //surviveTimer.start();
         break;
     case EnemyStatus::Die:
-        // after time, then enemy survive
+
 
         break;
     }

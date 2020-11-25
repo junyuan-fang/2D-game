@@ -1,4 +1,5 @@
 #include "basicscene.hh"
+#include "graphicsItem/hiteffect.hh"
 
 #include <QDebug>
 
@@ -156,12 +157,6 @@ void BasicScene::initEnemys(QString enemyPath)
         enemy->setStartX(iter->x());
         enemy->setEndX(iter->x() + 5*TileWidth);
         enemys.append(enemy);
-//        connect(enemy->hitEffect, &HitEffect::surviveEnemy, [enemy](){
-//            //qDebug() << "survive";
-//            enemy->setVisible(true);
-//            enemy->changeStatus(Enemy::EnemyStatus::Walk);
-//            enemy->hitEffectVisble(false);
-//        });
         this->addItem(enemy);
         ++iter;
     }
@@ -177,6 +172,11 @@ void BasicScene::updateEnemy()
     }
     for (int i = 0; i < enemys.length(); ++i){
         Enemy* enemy = enemys.at(i);
+
+        // if the enemy is not visible, then stop updating this enemy
+        if (!enemy->isVisible()){
+            continue;
+        }
         enemy->updateEnemy();
         enemy->setX(enemy->getPosition().x()-m_worldShift);
         // process attack with player
@@ -192,7 +192,7 @@ void BasicScene::updateEnemy()
 
         // if player collide with the enemy, send the signal "collideWithEnemy"
         // and change player's state and play the die sound and change the scene
-        if (enemy->collidesWithItem(mPlayer) && enemy->isVisible()){
+        if (enemy->collidesWithItem(mPlayer)){
             mPlayer->changeState(Player::PlayerState::Die);
             enemy->setVisible(false);
             dieSound->play();
@@ -205,20 +205,19 @@ void BasicScene::updateEnemy()
 
 void BasicScene::surviveEnemys()
 {
-    //qDebug() << "surviveEnemys";
-    // if the scene doesn't contain any enemy, then return
-    if (enemys.empty()){
-        return;
-    }
+    qDebug() << "survive Enemys";
 
-    for (int i = 0; i < enemys.length(); ++i){
+    QVector<Enemy*>::iterator enemyIter = enemys.begin();
+    while (enemyIter != enemys.end()) {
+        qDebug() << "The Enemys in this map isnot empty";
 
-        enemys.at(i)->setVisible(true);
-        enemys.at(i)->changeStatus(Enemy::EnemyStatus::Walk);
-        for (auto hitEffect : enemys.at(i)->childItems()){
-            // set enemy's child item(hit effect) invisible when surviving the enemys
-            hitEffect->setVisible(false);
-        }
+        // NOTICE: we should change enemy's status first then make enemy visible
+        // because if the enemy is visible and the current status is Hit after dying once
+        // then through update enemy, the enemy will disapear again
+        (*enemyIter)->changeStatus(Enemy::EnemyStatus::Walk);
+        (*enemyIter)->setVisible(true);
+        (*enemyIter)->hitEffectVisble(false);
+        ++enemyIter;
     }
 }
 
