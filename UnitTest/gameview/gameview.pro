@@ -1,13 +1,15 @@
 QT += testlib
 QT += core gui widgets network multimedia
 
-TARGET = windowtest
+TARGET = graphicsitemtest
 CONFIG += qt console warn_on depend_includepath testcase
 CONFIG -= app_bundle
 
+TARGET = gameviewtest
+
 TEMPLATE = app
 
-SOURCES +=  tst_windowtest.cpp\
+SOURCES +=  tst_gameviewtest.cpp\
 ../../Game/gameview.cpp \
 ../../Game/graphicsItem/aircrew.cpp \
 ../../Game/graphicsItem/backgrounditem.cpp \
@@ -42,14 +44,7 @@ SOURCES +=  tst_windowtest.cpp\
 
 DEFINES += SRCDIR=\\\"$$PWD/\\\"
 
-HEADERS += ../../Game/window/buswindow.hh \
-../../Game/window/talkwindow.hh\
-../../Game/map/airportmap.hh \
-../../Game/map/basemap.hh \
-../../Game/map/citymap.hh \
-../../Game/map/hospitalmap.hh \
-../../Game/map/universitymap.hh \
-../../Game/gameview.hh\
+HEADERS += ../../Game/gameview.hh\
 ../../Game/Constants.hh \
 ../../Game/graphicsItem/aircrew.hh \
 ../../Game/graphicsItem/backgrounditem.hh \
@@ -66,6 +61,11 @@ HEADERS += ../../Game/window/buswindow.hh \
 ../../Game/graphicsItem/train.hh \
 ../../Game/graphicsItem/tutor.hh \
 ../../Game/window/login.hh \
+../../Game/map/airportmap.hh \
+../../Game/map/basemap.hh \
+../../Game/map/citymap.hh \
+../../Game/map/hospitalmap.hh \
+../../Game/map/universitymap.hh \
 ../../Game/scene/airportscene.hh \
 ../../Game/scene/basicscene.hh \
 ../../Game/scene/cityscene.hh \
@@ -73,12 +73,15 @@ HEADERS += ../../Game/window/buswindow.hh \
 ../../Game/scene/hospitalscene.hh \
 ../../Game/scene/startscene.hh \
 ../../Game/scene/tamperescene.hh \
-../../Game/scene/universityscene.hh
+../../Game/scene/universityscene.hh \
+../../Game/window/buswindow.hh \
+../../Game/window/talkwindow.hh
 
 FORMS += ../../Game/window/login.ui\
 ../../Game/window/buswindow.ui\
 ../../Game/window/talkwindow.ui
 
+#QMAKE_POST_LINK += ./${TARGET}
 
 INCLUDEPATH += \
 ../../Game/

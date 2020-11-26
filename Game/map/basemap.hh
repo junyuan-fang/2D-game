@@ -7,7 +7,7 @@
 #include <QFile>
 #include <QVector2D>
 #include <QVector>
-#include "Constants.hh"
+#include "../Constants.hh"
 
 class BaseMap
 {

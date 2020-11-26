@@ -1,35 +1,43 @@
 #include <QtTest>
-
+#include <QString>
+#include <QVector2D>
+#include "../../Game/map/airportmap.hh"
 // add necessary includes here
 
-class MapTest : public QObject
+class AirportMapTest : public QObject
 {
     Q_OBJECT
 
 public:
-    MapTest();
-    ~MapTest();
+    AirportMapTest();
+    ~AirportMapTest();
 
 private slots:
-    void test_case1();
-
+    void object_in_map();
+    void object_in_map_data();
 };
 
-MapTest::MapTest()
+AirportMapTest::AirportMapTest()
+{
+}
+
+AirportMapTest::~AirportMapTest()
+{
+}
+
+void AirportMapTest::object_in_map()
+{
+    QFETCH(QString,object_name);
+    QFETCH(int,x);
+    QFETCH(int,y);
+
+}
+
+void AirportMapTest::object_in_map_data()
 {
 
 }
 
-MapTest::~MapTest()
-{
-
-}
-
-void MapTest::test_case1()
-{
-
-}
-
-QTEST_APPLESS_MAIN(MapTest)
+QTEST_APPLESS_MAIN(AirportMapTest)
 
 #include "tst_maptest.moc"
