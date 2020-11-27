@@ -117,8 +117,6 @@ int main(int argc, char *argv[])
        status |= QTest::qExec(&tb, argc, argv);
    }
 
-
-
    return status;
 }
 

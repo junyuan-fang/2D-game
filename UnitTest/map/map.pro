@@ -77,11 +77,14 @@ HEADERS += ../../Game/map/airportmap.hh \
 
 FORMS += ../../Game/window/login.ui\
 ../../Game/window/buswindow.ui\
-../../Game/window/talkwindow.ui
+../../Game/window/talkwindow.ui\
 
 
 INCLUDEPATH += \
-../../Game/
+../../Game/\
+
+RESOURCES+= \
+../../Game/map.qrc \
 
 win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../../Course/CourseLib/release/ -lCourseLib
 else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../../Course/CourseLib/debug/ -lCourseLib
