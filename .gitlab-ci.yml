@@ -28,8 +28,8 @@ Gameview:
     ##try to add Qt multimedia
     - apt-get update
     #test
-    - apt-get install tcpdump  
-    - apt-get build-dep libgtk2.0-0
+    - apt-get install qtmultimedia5-dev
+    - apt-get build-dep qtmultimedia5-dev
     - apt-get source --compile qtmultimedia5-dev
     # Run qmake to produce the makefile
     - qmake
