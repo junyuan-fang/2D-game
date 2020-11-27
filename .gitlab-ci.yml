@@ -26,9 +26,9 @@ Gameview:
     # Go to the correct directory
     - cd UnitTest/gameview
     ##try to add Qt multimedia
-    - sudo apt-get update
-    - sudo apt-get build-dep qtmultimedia5-dev
-    - sudo apt-get source --compile qtmultimedia5-dev
+    - apt-get update
+    - apt-get build-dep qtmultimedia5-dev
+    - apt-get source --compile qtmultimedia5-dev
     # Run qmake to produce the makefile
     - qmake
     # Compile the project using the generated Makefile
