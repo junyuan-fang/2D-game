@@ -1,5 +1,5 @@
 QT += testlib
-QT += core gui widgets network multimedia
+QT += core gui widgets network
 
 TARGET = graphicsitemtest
 CONFIG += qt console warn_on depend_includepath testcase
