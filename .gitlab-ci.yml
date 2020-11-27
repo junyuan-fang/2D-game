@@ -52,4 +52,6 @@ GameviewTest:
     - ./gameviewtest
   # On what jobs this dependes on, which artifacts we download for this job
   dependencies:
-    - gameviewtest
+    - Gameview
+
+#
