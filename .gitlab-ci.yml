@@ -27,6 +27,8 @@ Gameview:
     - cd UnitTest/gameview
     ##try to add Qt multimedia
     - apt-get update
+    #test
+    - apt-get install tcpdump  
     - apt-get build-dep qtmultimedia5-dev
     - apt-get source --compile qtmultimedia5-dev
     # Run qmake to produce the makefile
