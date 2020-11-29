@@ -28,6 +28,7 @@ public:
     void startView();
     void setCurrentScene(BasicScene::SceneType currentScene);
 
+
     //this method is for testing
 
     BasicScene::SceneType getCurrentScene() const;
