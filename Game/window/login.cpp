@@ -7,7 +7,22 @@ Login::Login(QWidget *parent) :
 {
     ui->setupUi(this);
     //initDialog();
+
+    ui->graphicsView->setStyleSheet("background-image: url(:/otherImage/images/tampere.png)");
     connect(ui->cancelButton, &QPushButton::clicked, this, &Login::rejected);
     connect(ui->startButton, &QPushButton::clicked, this, &Login::accepted);
 
 }
+
+QPushButton* Login::getCancleButton()
+{
+    return ui->cancelButton;
+
+}
+
+QPushButton *Login::getStartButton()
+{
+    return ui->startButton;
+}
+
+

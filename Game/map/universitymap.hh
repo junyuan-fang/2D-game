@@ -2,7 +2,7 @@
 #define UNIVERSITYMAP_HH
 #include <string>
 #include <QVector2D>
-#include "Constants.hh"
+#include "../Constants.hh"
 #include "basemap.hh"
 
 class UniversityMap : public BaseMap

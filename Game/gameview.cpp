@@ -96,6 +96,7 @@ void GameView::startView()
 void GameView::setCurrentScene(BasicScene::SceneType currentScene)
 {
     playlist->setCurrentIndex(currentScene);
+     currentScene_ = currentScene;
     switch (currentScene) {
     case BasicScene::SceneType::Start:
         setScene(startScene);
@@ -115,6 +116,11 @@ void GameView::setCurrentScene(BasicScene::SceneType currentScene)
         gameScenes.value(currentScene)->surviveEnemys();
         return;
     }
+}
+
+BasicScene::SceneType GameView::getCurrentScene() const
+{
+    return currentScene_;
 }
 
 void GameView::processChangeScene(BasicScene::SceneType fromScene, BasicScene::SceneType toScene)

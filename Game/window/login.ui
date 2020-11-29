@@ -108,9 +108,6 @@
      <height>361</height>
     </rect>
    </property>
-   <property name="styleSheet">
-    <string notr="true">background-image: url(:/otherImage/images/tampere.png);</string>
-   </property>
   </widget>
   <widget class="QPushButton" name="startButton">
    <property name="geometry">
