@@ -29,6 +29,11 @@ public:
     void setCurrentScene(BasicScene::SceneType currentScene);
 
 
+    // methods are moved to public for testing
+    // if basic scene emit the signal to change scene, then GameView class process
+    void processChangeScene(BasicScene::SceneType fromScene, BasicScene::SceneType toScene);
+    void setSound(QSoundEffect* sound, QString soundPath);
+
     //this method is for testing
 
     BasicScene::SceneType getCurrentScene() const;
@@ -36,10 +41,6 @@ public:
 private:
     // define current scene
     BasicScene::SceneType currentScene_;
-
-    // if basic scene emit the signal to change scene, then GameView class process
-    void processChangeScene(BasicScene::SceneType fromScene, BasicScene::SceneType toScene);
-    void setSound(QSoundEffect* sound, QString soundPath);
 
     // add scene
     TampereScene* tampereScene = new TampereScene;

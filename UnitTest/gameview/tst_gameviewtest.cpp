@@ -8,31 +8,6 @@ Q_DECLARE_METATYPE(BasicScene::SceneType);
 // add necessary includes here
 const QVector<QString> SCENE={"start","end","tampere","airpots","city","university","hospital","basic"};
 
-class gameViewTest_none : public QObject
-{
-    Q_OBJECT
-
-public:
-    gameViewTest_none();
-    ~gameViewTest_none();
-
-private slots:
-    void check_scene();
-};
-gameViewTest_none::gameViewTest_none()
-{
-
-}
-
-gameViewTest_none::~gameViewTest_none()
-{
-
-}
-void gameViewTest_none::check_scene()
-{
-}
-
-
 class gameViewTest : public QObject
 {
     Q_OBJECT
@@ -45,11 +20,14 @@ private slots:
     void switch_scene();
     void switch_scene_data();
 
+private:
+    GameView* view_test_;
+
 };
 
 gameViewTest::gameViewTest()
 {
-
+    view_test_=new GameView;
 }
 
 gameViewTest::~gameViewTest()
@@ -66,10 +44,15 @@ void gameViewTest::switch_scene()
     QFETCH(QString, scene_from);
     QFETCH(QString, scene_to);
     QFETCH(BasicScene::SceneType, scene_from_index);
+    QFETCH(BasicScene::SceneType, scene_to_index);
+
     uint scene_leave=static_cast<uint>(scene_from_index);
-    // Performing the test
+    // Performing the test outside the GameView
     QCOMPARE(SCENE[scene_leave],scene_from);
     QVERIFY2(scene_from != scene_to, "Wrong switch");
+    // Inside GameView starts now
+    view_test_->setCurrentScene(scene_to_index);
+    QVERIFY2(view_test_->getCurrentScene() != scene_from_index, "GameView Wrong switch");
 }
 
 
@@ -78,16 +61,15 @@ void gameViewTest::switch_scene_data()
     QTest::addColumn<QString>("scene_from");
     QTest::addColumn<QString>("scene_to");
     QTest::addColumn<BasicScene::SceneType>("scene_from_index");
-
+    QTest::addColumn<BasicScene::SceneType>("scene_to_index");
     //    // Generating test cases for the test matrix
-    QTest::newRow("city to tampere")      << "city"  << "tampere" << BasicScene::SceneType::City;
-    QTest::newRow("univercity to end")      << "university"  << "end" << BasicScene::SceneType::University;
-    QTest::newRow("univercity to tampere")      << "university"  << "tampere" << BasicScene::SceneType::University;
-    QTest::newRow("univercity to airpots")      << "university"  << "airpots" << BasicScene::SceneType::University;
-    QTest::newRow("tampere to city")      << "tampere"  << "city" << BasicScene::SceneType::Tampere;
-    QTest::newRow("start to airpots")      << "start"  << "airpots" << BasicScene::SceneType::Start;
-    QTest::newRow("airpots to city")      << "airpots"  << "city" << BasicScene::SceneType::Airport;
-    QTest::newRow("city to tampere")      << "city"  << "tampere" << BasicScene::SceneType::City;
+    QTest::newRow("start to airpots")      << "start"  << "airpots" << BasicScene::SceneType::Start<< BasicScene::SceneType::Airport;
+    QTest::newRow("airpots to city")      << "airpots"  << "city" << BasicScene::SceneType::Airport<< BasicScene::SceneType::City;
+    QTest::newRow("city to tampere")      << "city"  << "tampere" << BasicScene::SceneType::City<< BasicScene::SceneType::Tampere;
+    QTest::newRow("tampere to city")      << "tampere"  << "city" << BasicScene::SceneType::Tampere<< BasicScene::SceneType::City;
+    QTest::newRow("city to tampere")      << "city"  << "tampere" << BasicScene::SceneType::City<< BasicScene::SceneType::Tampere;
+    QTest::newRow("tampere to univercity")      << "tampere" << "university" << BasicScene::SceneType::Tampere<< BasicScene::SceneType::University;
+    QTest::newRow("univercity to end")      << "university"  << "end" << BasicScene::SceneType::University<< BasicScene::SceneType::End;
 }
 
 //QTEST_APPLESS_MAIN(gameViewTest)
@@ -95,14 +77,11 @@ void gameViewTest::switch_scene_data()
 int main(int argc, char *argv[])
 {
    int status = 0;
-   {
-       gameViewTest ta;
-       status |= QTest::qExec(&ta, argc, argv);
-   }
 
    {
-       gameViewTest_none tb;
-       status |= QTest::qExec(&tb, argc, argv);
+       QApplication app(argc, argv);
+       gameViewTest ta;
+       status |= QTest::qExec(&ta, argc, argv);
    }
 
    return status;
