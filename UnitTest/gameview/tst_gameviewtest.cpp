@@ -18,7 +18,6 @@ public:
 
 private slots:
     void check_scene();
-    void check_scene_data();
 };
 gameViewTest_none::gameViewTest_none()
 {
@@ -31,13 +30,8 @@ gameViewTest_none::~gameViewTest_none()
 }
 void gameViewTest_none::check_scene()
 {
-
 }
 
-void gameViewTest_none::check_scene_data()
-{
-
-}
 
 class gameViewTest : public QObject
 {
