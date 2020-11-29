@@ -53,5 +53,13 @@
         <file>animation/tutor/tutor1.png</file>
         <file>animation/tutor/tutor2.png</file>
         <file>animation/tutor/tutor3.png</file>
+        <file>animation/gate/gate0.png</file>
+        <file>animation/gate/gate1.png</file>
+        <file>animation/gate/gate2.png</file>
+        <file>animation/gate/gate3.png</file>
+        <file>animation/gate/gate4.png</file>
+        <file>animation/gate/gate5.png</file>
+        <file>animation/gate/gate6.png</file>
+        <file>animation/gate/gate7.png</file>
     </qresource>
 </RCC>
