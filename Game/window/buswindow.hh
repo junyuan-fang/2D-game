@@ -2,6 +2,7 @@
 #define BUSWINDOW_HH
 
 #include <QWidget>
+#include <QPushButton>
 
 namespace Ui {
 class BusWindow;
@@ -16,15 +17,19 @@ public:
     ~BusWindow();
     void Test();
 
+    //those methods are for testing
+     QPushButton* getEndButton();
+     QPushButton* getLeftButton();
+     QPushButton* getRightButton();
+
 signals:
-    void selectedBus(QString busNumber);
+    void selectedBus(QString busNumber);     
+
 
 private:
     QString MapOfBusStop;
     void initWindow();
     Ui::BusWindow *ui;
-
-
 
 
 };

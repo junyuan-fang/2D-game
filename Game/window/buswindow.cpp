@@ -39,3 +39,19 @@ void BusWindow::initWindow()
     ui->leftButton->setVisible(true);
     ui->leftButton->setText("6B");
 }
+
+//for testing
+QPushButton *BusWindow::getEndButton()
+{
+    return ui->endButton;
+}
+
+QPushButton *BusWindow::getLeftButton()
+{
+    return ui->leftButton;
+}
+
+QPushButton *BusWindow::getRightButton()
+{
+    return ui->rightButton;
+}

@@ -2,6 +2,7 @@
 #define LOGIN_HH
 
 #include <QDialog>
+#include <QPushButton>
 
 namespace Ui {
 class Login;
@@ -13,6 +14,10 @@ class Login : public QDialog
 
 public:
     explicit Login(QWidget *parent = nullptr);
+
+    //Those methods are for testing
+    QPushButton* getCancleButton();
+    QPushButton* getStartButton();
 
 private:
     Ui::Login *ui;
