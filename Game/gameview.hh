@@ -28,7 +28,14 @@ public:
     void startView();
     void setCurrentScene(BasicScene::SceneType currentScene);
 
+    //this method is for testing
+
+    BasicScene::SceneType getCurrentScene() const;
+
 private:
+    // define current scene
+    BasicScene::SceneType currentScene_;
+
     // if basic scene emit the signal to change scene, then GameView class process
     void processChangeScene(BasicScene::SceneType fromScene, BasicScene::SceneType toScene);
     void setSound(QSoundEffect* sound, QString soundPath);

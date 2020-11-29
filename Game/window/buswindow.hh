@@ -16,11 +16,11 @@ public:
     explicit BusWindow(QString mapName, QWidget *parent = nullptr);
     ~BusWindow();
     void Test();
-
-    //those methods are for testing
-     QPushButton* getEndButton();
-     QPushButton* getLeftButton();
-     QPushButton* getRightButton();
+    //for testing
+    QPushButton *getEndButton();
+    QPushButton *getLeftButton();
+    QPushButton *getRightButton();
+    bool get_pressed();
 
 signals:
     void selectedBus(QString busNumber);     
@@ -30,6 +30,9 @@ private:
     QString MapOfBusStop;
     void initWindow();
     Ui::BusWindow *ui;
+    //for testing
+    bool button_pressed_=false;
+
 
 
 };

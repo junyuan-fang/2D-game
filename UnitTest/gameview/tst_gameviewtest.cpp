@@ -48,7 +48,6 @@ public:
     ~gameViewTest();
 
 private slots:
-    void test_case1();
     void switch_scene();
     void switch_scene_data();
 
@@ -60,11 +59,6 @@ gameViewTest::gameViewTest()
 }
 
 gameViewTest::~gameViewTest()
-{
-
-}
-
-void gameViewTest::test_case1()
 {
 
 }

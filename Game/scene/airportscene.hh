@@ -24,11 +24,11 @@ public:
     void moveScene() override;
     void initScene() override;
     void updateItemState() override;
+    void processBusWindow(QString busNumber);//moved from private for testing
 
 private:
     void trainWindowResponse(bool answer);
     void trainAnimation();
-    void processBusWindow(QString busNumber);
 
     int trainDirection = 0;
     QVector2D trainEndPosition = {0,0};

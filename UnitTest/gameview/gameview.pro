@@ -85,3 +85,8 @@ FORMS += ../../Game/window/login.ui\
 
 INCLUDEPATH += \
 ../../Game/
+RESOURCES+= ../../Game/animation.qrc \
+../../Game/background.qrc \
+../../Game/map.qrc \
+../../Game/music.qrc \
+../../Game/penguin.qrc

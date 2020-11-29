@@ -79,6 +79,12 @@ FORMS += ../../Game/window/login.ui\
 ../../Game/window/buswindow.ui\
 ../../Game/window/talkwindow.ui
 
+RESOURCES+= \
+../../Game/animation.qrc \
+../../Game/background.qrc \
+../../Game/map.qrc \
+../../Game/music.qrc \
+../../Game/penguin.qrc
 
 INCLUDEPATH += \
 ../../Game/
