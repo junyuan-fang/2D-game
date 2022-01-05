@@ -1,2 +1,2 @@
 # Penguin adventure
-<img src="project_documentation.pdf">
+[Project Documentation](https://github.com/junyuan-fang/2D-game/blob/junyuan/project_documentation.pdf)
